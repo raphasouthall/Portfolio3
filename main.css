@@ -1,0 +1,137 @@
+@font-face {
+    src: url(assets/fonts/e17e57567eb605cf.ttf);
+    font-family: ex;
+  }
+
+  @font-face {
+    src: url(assets/fonts/7b266d333cb9b232.ttf);
+    font-family: meb;
+  }
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+html{
+    /* height: 300vh; */
+    /* height: -webkit-fill-available; */
+    /* position: fixed; */
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: rgb(244,157,220);
+    background: linear-gradient(0deg, rgba(244,157,220,1) 0%, rgba(107,178,255,1) 44%, rgba(255,134,0,1) 100%);
+}
+
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    overflow: hidden;
+}
+
+.header
+{
+    display: flex;
+    font-family: ex;
+    height: fit-content;
+    color: #000000;
+    resize: horizontal;
+    overflow: hidden;
+    background-color: rgba(240, 248, 255, 0);
+    /* text-transform: uppercase; */
+    /* font-size: 150%; */
+    /* padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%; */
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    right:0;
+    top: 0;
+    /* padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;  */
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+/* .logo
+{
+    max-height: 15vh;
+    min-height: 8vh;
+} */
+
+/* .sublogo{
+    ;
+} */
+
+.section1
+{
+    display: flex;
+    height: 100vh;
+    position: relative;
+    font-family: ex;
+    color: #000000;
+    background-color: rgba(0, 255, 17, 0);
+    /* text-transform: uppercase; */
+    /* font-weight: 1000; */
+    font-size: 7vmin;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    /* justify-content: flex-end; */
+}
+
+
+.section2
+{
+    display: flex;
+    height: 100vh;
+    position: relative;
+    font-family: ex;
+    color: #000000;
+    background-color: rgba(0, 0, 255, 0);
+    /* text-transform: uppercase; */
+    /* font-weight: 1000; */
+    font-size: 5vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    /* justify-content: flex-end; */
+}
+.section3
+{
+    display: flex;
+    height: 100vh;
+    position: relative;
+    font-family: ex;
+    color: #000000;
+    background-color: rgba(137, 43, 226, 0);
+    /* text-transform: uppercase; */
+    /* font-weight: 1000; */
+    font-size: 7vmin;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+    /* justify-content: flex-end; */
+
+}
+
+section:nth-child(odd)
+{
+    justify-content: flex-end;
+}
+
+/* h1,h2
+{
+    font-family: ex; 
+} */
+
+
+/*# sourceMappingURL=main.css.map*/
