@@ -17,32 +17,44 @@
     box-sizing: border-box;
 }
 
-html
+body
 {
-    background: rgb(255,169,0);
-    background: -moz-linear-gradient(0deg, rgba(255,169,0,1) 0%, rgba(157,220,244,1) 50%, rgba(244,157,220,1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(255,169,0,1) 0%, rgba(157,220,244,1) 50%, rgba(244,157,220,1) 100%);
-    background: linear-gradient(0deg, rgba(255,169,0,1) 0%, rgba(157,220,244,1) 50%, rgba(244,157,220,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffa900",endColorstr="#f49ddc",GradientType=1);
+    background: rgb(244,157,220);
+    background: -moz-linear-gradient(0deg, rgba(244,157,220,1) 0%, rgba(157,220,244,1) 25%, rgba(255,169,0,1) 50%, rgba(157,220,244,1) 75%, rgba(244,157,220,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(244,157,220,1) 0%, rgba(157,220,244,1) 25%, rgba(255,169,0,1) 50%, rgba(157,220,244,1) 75%, rgba(244,157,220,1) 100%);
+    background: linear-gradient(0deg, rgba(244,157,220,1) 0%, rgba(157,220,244,1) 25%, rgba(255,169,0,1) 50%, rgba(157,220,244,1) 75%, rgba(244,157,220,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f49ddc",endColorstr="#f49ddc",GradientType=1);
+    animation: gradient 30s linear infinite;
+    background-size: 300% 300%;
+    height: 100%;
+}
+
+
+@keyframes gradient {
+	/* 0%{background-position:50% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:50% 00%} */
+    0% {background-position:0 -300%}
+    100% {background-position:-300% 0}
 }
 
 .container
 {
+    /* position: static; */
+    overflow: hidden;
     display: grid;
     height: 100vh;
-    grid-template-columns: .5fr .8fr  .5fr;
-    grid-template-rows: .1fr .5fr 1fr .5fr .1fr;
+    grid-template-columns: 3% 90% 3%;
+    grid-template-rows: 1% 18% 50% 18% 1%;
     grid-template-areas: 
     "sidebar_left nav sidebar_right"
-    "sidebar_left main sidebar_right"
-    "sidebar_left content2 sidebar_right"
-    "sidebar_left content3 sidebar_right"
+    "sidebar_left container_main sidebar_right"
+    "sidebar_left container_content2 sidebar_right"
+    "sidebar_left container_content3 sidebar_right"
     "sidebar_left footer sidebar_right"
     ;
-    grid-gap: 1rem;
+    grid-gap: 2%;
     text-align: center;
-    align-items: stretch;
-    justify-content: stretch;
     font-family: mani;
     font-weight: bolder;
     font-stretch: condensed;
@@ -50,43 +62,96 @@ html
 
 .container_main
 {
+    grid-area: container_main;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(30%);
+    grid-template-rows: 100%;
     grid-template-areas: 
-    "main_logo main_logo main_logo"
-    "main1 main2 main2 "
+    "main_logo main2 main2"
     ;
     /* font-size: 1.5vmax; */
     align-items: center;
+    /* justify-items: center; */
 }
 
 #main_logo
 {
-    background-color: rgba(0, 0, 0, 0.067);
+    background-color: rgba(0, 0, 0, 0);
     grid-area: main_logo;
+    border-radius: 25px;
+    border: 3px solid #000000;
+    padding: 1%;
 }
 
 #main1
 {
-    background-color: rgba(0, 0, 0, 0.067);
+    background-color: rgba(0, 0, 0, 0);
     grid-area: main1;
-   
+    text-align: center;
+    font-size: 4vmin;
+    transform:scale(0.6,1); /* W3C */
 }
 
 #main2
 {
-    /* background-color: rgba(0, 0, 0, 0.067); */
+    background-color: rgba(0, 0, 0, 0);
     grid-area: main2;
+    text-align: center;
+    font-size: 3vmin;
+    line-height: 0.4;
+    padding: 1%;
 }
 
-.creative
+#logo
 {
-    width: 100%;
-    height: 100%;
+    max-height:100%;
+    max-width: 100%;
 }
 
- html::-webkit-scrollbar {
+#creative
+{
+    max-height:100%;
+    max-width: 100%;
+}
+
+
+.container_content2
+{
+    grid-area: container_content2;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "block1 block2 block3"
+    ;
+    grid-gap: 2%;
+    border-radius: 25px;
+    border: 3px solid #000000;
+}
+
+#block_1
+{
+    grid-area: block1;
+    background-color: #00000056;
+    
+}
+
+#block_2
+{
+    grid-area: block2;
+    background-color: #0000002d;
+}
+
+#block_3
+{
+    grid-area: block3;
+    background-color: #000000a3;
+}
+
+
+
+html::-webkit-scrollbar 
+{
     display: none;
 }
 
@@ -94,25 +159,18 @@ nav
 {
     background-color: rgba(0, 0, 0, 0.067);
     grid-area: nav; 
-    font-size: 1vmax;
+    font-size: .7vmax;
     text-align: center;
     /* min-width: 0; */
     /* overflow: hidden; */
 }
 
-.container_main
-{
-    background-color: rgba(0, 0, 0, 0.067);
-    grid-area: main; 
-    font-size: 1.5vmax;
-    text-align: center;
-    align-content: center;
-}
 
 #sidebar_left
 {
     background-color: rgba(0, 0, 0, 0.067);
     grid-area: sidebar_left;
+    font-size: 1vmax;
     writing-mode: vertical-rl;
 }
 
@@ -120,6 +178,7 @@ nav
 {
     background-color: rgba(0, 0, 0, 0.067);
     grid-area: sidebar_right;
+    font-size: 1vmax;
     writing-mode: vertical-rl;
 }
 
@@ -132,59 +191,138 @@ nav
 
 #content2
 {
-    background-color: rgba(0, 0, 0, 0.067);
+    background-color: rgba(255, 0, 0, 0);
     grid-area: content2;
     /* min-width: 0; */
-    overflow: hidden;
+    
 }
 
-#content3
+.container_content3
 {
+    grid-area: container_content3;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "content3_block1 content3_block2"
+    ;
+    grid-gap: 2%;
     background-color: rgba(0, 0, 0, 0.067);
-    grid-area: content3;
     font-size: 1.5vmax;
     align-content: center;
-    border: solid;
+    
 }
 
-#content3_text
+.container_content3_1
 {
-    text-align: center;
-    margin: auto;
+    grid-area: content3_block1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    "openfor"
+    "img_2023"
+    ;
+    align-content: center;
+    border-radius: 25px;
+    border: 3px solid #000000;
+    padding: 1%;
+    grid-gap: 3%;
+}
+
+#openfor
+{
+    grid-area: openfor;
+}
+
+#img_2023
+{
+    grid-area: img_2023;
+}
+
+.container_content3_2
+{
+    grid-area: content3_block2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    "openfor"
+    "img_2023"
+    ;
+    align-content: center;
+    border-radius: 25px;
+    border: 3px solid #000000;
+    padding: 1%;
 }
 
 footer
 {
     background-color: rgba(0, 0, 0, 0.067);
     grid-area: footer;
-    font-size: 1.5vmax;
+    font-size: 1vmax;
 }
 
-.logo
-{
-    width: 100%;
-    height: 100%;
-}
 
 .webgl
 {
     width: 100%;
     height: 100%;
-    border: solid;
+    border-radius: 25px;
+    border: 3px solid #000000;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 550px) {
     .container {
-      grid-template-columns: 0.2fr 2.6fr 0.2fr;
-      grid-template-rows: 0.1fr 1.4fr 2.8fr 0.6fr 0.1fr;
-      grid-template-areas:
+        overflow: hidden;
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 3% 90% 3%;
+        grid-template-rows: 1% 19% 50% 19% 1%;
+        grid-template-areas: 
         "sidebar_left nav sidebar_right"
-        "sidebar_left main sidebar_right"
-        "sidebar_left content2 sidebar_right"
-        "sidebar_left content3 sidebar_right"
-        "sidebar_left footer sidebar_right";
-        grid-gap: 1rem;
+        "sidebar_left container_main sidebar_right"
+        "sidebar_left container_content2 sidebar_right"
+        "sidebar_left container_content3 sidebar_right"
+        "sidebar_left footer sidebar_right"
+        ;
+        grid-gap: 2%;
+        text-align: center;
+        /* align-items: center; */
+        /* justify-items: center; */
+        font-family: mani;
+        font-weight: bolder;
+        font-stretch: condensed;
+    }
+
+    .container_main
+    {
+        grid-area: container_main;
+        display: grid;
+        grid-template-columns: repeat(30%);
+        grid-template-rows: 50% 50%;
+        grid-template-areas: 
+        "main_logo main_logo main_logo"
+        "main2 main2 main2"
+        ;
+        /* font-size: 1.5vmax; */
+        /* align-items: center; */
+        /* justify-items: center; */
+    }
+
+    .container_content2
+    {
+        grid-area: container_content2;
+        display: grid;
+        grid-template-columns: 0% 100% 0%;
+        grid-template-rows: 100%;
+        grid-template-areas: 
+        "block2 block2 block2"
+        ;
+        /* grid-gap: 2%; */
     }
   }
+
+  
 
 /*# sourceMappingURL=main.css.map*/
